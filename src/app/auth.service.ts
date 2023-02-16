@@ -22,6 +22,7 @@ export class AuthService {
   isAuthenticated() : boolean {
     return false;
   }
+  
 
   salvar(usuario: Usuario) : Observable<any>{
     return this.http.post<any>(this.apiURL, usuario);
