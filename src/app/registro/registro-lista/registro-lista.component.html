@@ -1,0 +1,58 @@
+<h1 class="mt-4">Medicamentos</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+    <form #consultaForm="ngForm" (submit)="consultar()">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="inputNome">Nome do medicamento</label>
+                <input type="text" [(ngModel)]="nome"
+                       name="nome" 
+                       id="inputNome"
+                       class="form-control">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-search"></i> Consultar
+                </button>
+                <button type="button" 
+                        routerLink="/registro/form"
+                        class="btn btn-warning ml-1">
+                    <i class="fa fa-plus"></i> Novo
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <br />
+    <div class="row">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Medicamento</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Observacao</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of lista">
+                        <td>{{ r.medicamento.descricao }}</td>
+                        <td>{{ r.data }}</td>
+                        <td>{{ r.hora }}</td>
+                        <td>{{ r.observacao }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

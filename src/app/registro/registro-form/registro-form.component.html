@@ -1,0 +1,66 @@
+<h1 class="mt-4">Registro</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrum-bitem active">Novo</li>
+</ol>
+<div class="container">
+    <form #form="ngForm" (submit)="onSubmit()" >
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success">
+                    Registrado com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Medicamento:</label>
+                    <select class="form-control" 
+                            [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]="registro.idMedicamento">
+                        <option value="">Selecione...</option>
+                        <option *ngFor="let med of medicamentos" [ngValue]="med.id">
+                            {{ med.descricao }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Data:</label>
+                    <input class="form-control" [(ngModel)]="registro.data" type="text" name="data" id="inputData"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Hora:</label>
+                    <input class="form-control" [(ngModel)]="registro.hora" type="text" name="hora" id="inputHora"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Observação</label>
+                    <input class="form-control" [(ngModel)]="registro.observacao" type="text" name="observacao" id="inputObs">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i>
+                    Salvar
+                </button>
+                <button type="submit" routerLink="/registro/lista" class="btn btn-danger ml-1" >
+                    <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </form>    
+</div>

@@ -1,0 +1,103 @@
+<h1 class="mt-4">Medicamentos</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">{{ medicamento.id ? 'Edição' : 'Cadastro' }}</li>
+</ol>
+<div class="container">
+    <form #medicamentosForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success">
+                    Medicamento salvo/atualizado com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="medicamento.id">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" [ngModel]="medicamento.id" name="id" 
+                        class="form-control" disabled="true"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Data Cadastro:</label>
+                    <input type="text" class="form-control" 
+                        [ngModel]="medicamento.dataCadastro" name="dataCadastro" 
+                        disabled="true"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Descrição:</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="medicamento.descricao" name="descricao"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Forma:</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="medicamento.forma" name="forma"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Intensidade:</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="medicamento.intensidade" name="intensidade"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Unidade:</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="medicamento.unidade" name="unidade"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Frequencia:</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="medicamento.frequencia" name="frequencia"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Horario:</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="medicamento.horario" name="horario"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Observação:</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="medicamento.observacao" name="observacao"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success" >
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+                <button type="submit" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -2,15 +2,15 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
 })
+export class LayoutComponent implements AfterViewInit {
 
-export class AppComponent  {
-  title = 'medicin-app';
+  constructor() { }
 
-  /* ngAfterViewInit(){
+  ngAfterViewInit(){
 
     //alert('ngAfterViewInit');
     
@@ -35,6 +35,5 @@ export class AppComponent  {
     
  
   }
-  
-  */
+
 }
