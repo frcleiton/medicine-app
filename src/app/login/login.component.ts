@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
           
           console.log(response)
           const access_token = JSON.stringify(response);
+          const pao_de_queijo = JSON.stringify(response);
           localStorage.setItem('access_token', access_token);
+          localStorage.setItem('pao_de_queijo', pao_de_queijo);
           this.router.navigate(['/home'])
         
         }, errorResponse => {
